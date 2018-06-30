@@ -1,0 +1,23 @@
+{
+  "name": "hiking-pace",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint src/",
+    "start": "webpack-dev-server --mode development --content-base dist/ --watch",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "eslint": "^5.0.1",
+    "webpack": "^4.12.2",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "@turf/distance": "^6.0.1",
+    "d3": "^5.5.0",
+    "lit-html": "^0.10.2",
+    "regression": "^2.0.1",
+    "save-svg-as-png": "^1.4.5",
+    "xml2js": "^0.4.19"
+  }
+}

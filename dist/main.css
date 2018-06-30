@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono');
+
+body {
+  margin: 0;
+  font-family: 'Fira Mono', monospace;
+}
+
+.entries {
+  list-style-type: none;
+}
+
+.entries li {
+  padding: 12px;
+  margin-bottom: 4px;
+  border: 1px solid #ddd;
+}

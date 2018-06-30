@@ -1,0 +1,33 @@
+#graph {
+  background-color: #fff;
+}
+
+.line {
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke: #999;
+  stroke-opacity: 0.6;
+  fill: none;
+}
+
+.line.regression {
+  stroke-dasharray: 1 4;
+}
+.line.regression.highlighted {
+  stroke-width: 2;
+  stroke: red;
+  stroke-dasharray: none;
+}
+
+.dot {
+  r: 2;
+  fill: rgb(31, 119, 180);
+  stroke: none;
+  opacity: 0.25;
+}
+
+.dot.highlighted {
+  r: 3;
+  opacity: 1;
+}
