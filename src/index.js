@@ -19,7 +19,7 @@ document.querySelector('#files').addEventListener('mouseout', () => {
   graph.unhighlight(g);
 });
 
-document.querySelector('#export').addEventListener('click', event => {
+document.querySelector('#export').addEventListener('click', () => {
   saveSvgAsPng(document.querySelector('#graph'), 'graph.png');
 });
 
