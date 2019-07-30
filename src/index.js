@@ -1,5 +1,5 @@
 import {html, render} from 'lit-html';
-import {repeat} from 'lit-html/lib/repeat';
+import {repeat} from 'lit-html/directives/repeat.js';
 import {saveSvgAsPng} from 'save-svg-as-png';
 
 import * as graph from './graph';
