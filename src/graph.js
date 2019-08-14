@@ -5,7 +5,7 @@ import regression from 'regression';
 import {hiking_time} from './time';
 
 
-const margin = {top: 20, right: 20, bottom: 30, left: 80};
+const margin = {top: 20, right: 20, bottom: 60, left: 100};
 const x = d3.scaleLinear();
 const y = d3.scaleLinear();
 
@@ -41,6 +41,20 @@ export function init(dest) {
    .datum(theoretical)
    .attr('class', 'theoretical line')
    .attr('d', line);
+
+  g.append('text')
+    .attr('class', 'axis-label')
+    .attr('text-anchor', 'end')
+    .attr('x', width)
+    .attr('y', height + margin.top + 20)
+    .text('slope');
+
+  g.append('text')
+    .attr('class', 'axis-label')
+    .attr('text-anchor', 'end')
+    .attr('transform', 'rotate(-90)')
+    .attr('y', -margin.left + 20)
+    .text('minutes / km')
 
   return g;
 }

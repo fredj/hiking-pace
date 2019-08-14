@@ -20,6 +20,10 @@
   stroke-dasharray: none;
 }
 
+.axis-label {
+  font-size: 12px;
+}
+
 .dot {
   r: 2;
   fill: rgb(31, 119, 180);
