@@ -8,7 +8,7 @@
     "gh-pages": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
+    "eslint": "^7.0.0",
     "gh-pages": "^2.0.1",
     "parcel-bundler": "^1.12.3"
   },
