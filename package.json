@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@turf/distance": "^6.0.1",
-    "d3": "^5.9.7",
+    "d3": "^6.6.2",
     "lit-html": "^1.1.2",
     "regression": "^2.0.1",
     "save-svg-as-png": "^1.4.14",
