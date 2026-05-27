@@ -1,16 +1,108 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono');
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  padding: 16px 24px;
   font-family: 'Fira Mono', monospace;
+  background: #f8f8f8;
+  color: #222;
+}
+
+header {
+  margin-bottom: 16px;
+}
+
+header h1 {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+header p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#chart-container {
+  position: relative;
+  display: inline-block;
+  border: 2px dashed #ccc;
+  border-radius: 4px;
+  background: #fff;
+  transition: border-color 0.15s;
+}
+
+#chart-container.dragover {
+  border-color: #4a90d9;
+  background: #f0f6ff;
+}
+
+#drop-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.9rem;
+  color: #aaa;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+#chart-container.has-data #drop-hint {
+  opacity: 0;
+}
+
+#graph {
+  display: block;
+}
+
+#controls {
+  display: flex;
+  gap: 8px;
+}
+
+#export {
+  font-family: 'Fira Mono', monospace;
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #fff;
+  cursor: pointer;
+}
+
+#export:hover {
+  background: #f0f0f0;
 }
 
 .entries {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .entries li {
-  padding: 12px;
+  padding: 10px 14px;
   margin-bottom: 4px;
   border: 1px solid #ddd;
+  border-radius: 3px;
+  background: #fff;
+  cursor: default;
+  font-size: 0.85rem;
+}
+
+.entries li:hover {
+  border-color: #4a90d9;
+  background: #f0f6ff;
 }
