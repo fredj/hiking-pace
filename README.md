@@ -31,8 +31,8 @@ npm install
 npm start
 ```
 
-Then open http://localhost:1234.
+Then open http://localhost:5173.
 
 ## Stack
 
-JavaScript · [D3.js](https://d3js.org/) · [lit-html](https://lit.dev/) · [Turf.js](https://turfjs.org/) · [Parcel](https://parceljs.org/)
+JavaScript · [D3.js](https://d3js.org/) · [lit-html](https://lit.dev/) · [Turf.js](https://turfjs.org/) · [Vite](https://vitejs.dev/)
