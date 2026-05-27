@@ -38,7 +38,7 @@ drop.init('#graph', (text) => {
     const entryId = `entry_${entries.length}`;
     const entry = {
       id: entryId,
-      name: content.trk[0].name[0],
+      name: content.querySelector('trk > name')?.textContent || 'Unknown',
       length: combined.map(segment => segment.length).reduce((acc, val) => acc + val, 0),
       points: gpx.convert(combined)
     };

@@ -1,31 +1,26 @@
 import distance from '@turf/distance';
-import {parseString} from 'xml2js';
 
 
 export function read(text) {
-  return new Promise((resolve, reject) => {
-    parseString(text, (err, result) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(result.gpx);
-      }
-    });
-  });
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(text, 'application/xml');
+  return Promise.resolve(doc);
 }
 
 
-export function toSegments(result) {
-  // FIXME: use xpath ?
-  const trkpt = result.trk[0].trkseg[0].trkpt;
+export function toSegments(doc) {
+  const trkpts = Array.from(doc.querySelectorAll('trkseg trkpt'));
   const segments = [];
-  for (let i = 1, ii = trkpt.length; i < ii; i++) {
-    const cur = trkpt[i];
-    const prev = trkpt[i - 1];
+  for (let i = 1; i < trkpts.length; i++) {
+    const cur = trkpts[i];
+    const prev = trkpts[i - 1];
     segments.push({
-      length: distance([cur.$.lon, cur.$.lat], [prev.$.lon, prev.$.lat]) * 1000,
-      height: parseFloat(cur.ele[0]) - parseFloat(prev.ele[0]),
-      duration: (Date.parse(cur.time[0]) - Date.parse(prev.time[0])) / 1000
+      length: distance(
+        [parseFloat(cur.getAttribute('lon')), parseFloat(cur.getAttribute('lat'))],
+        [parseFloat(prev.getAttribute('lon')), parseFloat(prev.getAttribute('lat'))]
+      ) * 1000,
+      height: parseFloat(cur.querySelector('ele').textContent) - parseFloat(prev.querySelector('ele').textContent),
+      duration: (Date.parse(cur.querySelector('time').textContent) - Date.parse(prev.querySelector('time').textContent)) / 1000
     });
   }
   return segments;
@@ -51,18 +46,21 @@ export function combine(segments, fn) {
       length = height = duration = 0;
     }
   }
+  if (length > 0) {
+    results.push({length, height, duration});
+  }
   return results;
 }
 
 
-export function convert(segments) {
-  return segments.map(segment => {
-    const slope = (segment.height / segment.length) * 100;
-    const pace = (segment.duration / 60) / (segment.length / 1000);
+const MAX_PACE = 60;
 
-    return {
-      slope: slope,
-      pace: pace
-    };
-  });
+export function convert(segments) {
+  return segments
+    .filter(segment => segment.duration > 0)
+    .map(segment => ({
+      slope: (segment.height / segment.length) * 100,
+      pace: (segment.duration / 60) / (segment.length / 1000)
+    }))
+    .filter(point => point.pace <= MAX_PACE);
 }

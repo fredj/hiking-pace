@@ -1,37 +1,88 @@
 #graph {
   background-color: #fff;
+  font-family: 'Fira Mono', monospace;
+  font-size: 11px;
+}
+
+.axis text {
+  fill: #888;
+  font-size: 11px;
+}
+
+.axis path,
+.axis line {
+  stroke: #ccc;
+}
+
+.grid line {
+  stroke: #eee;
+  stroke-width: 1;
+}
+
+.grid path {
+  stroke: none;
+}
+
+.zero-line {
+  stroke: #ddd;
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
 }
 
 .line {
-  stroke-width: 1.5;
+  stroke-width: 2;
   stroke-linejoin: round;
   stroke-linecap: round;
-  stroke: #999;
-  stroke-opacity: 0.6;
+  stroke: #bbb;
   fill: none;
 }
 
 .line.regression {
-  stroke-dasharray: 1 4;
+  stroke-dasharray: 4 4;
+  stroke: #ccc;
 }
+
 .line.regression.highlighted {
-  stroke-width: 2;
-  stroke: red;
+  stroke-width: 2.5;
+  stroke: #e05252;
   stroke-dasharray: none;
+  stroke-opacity: 1;
+}
+
+.ci-band {
+  fill: #aaa;
+  fill-opacity: 0.08;
+  stroke: none;
+}
+
+.ci-band.highlighted {
+  fill: #e05252;
+  fill-opacity: 0.12;
+}
+
+rect.ci-band {
+  rx: 2;
 }
 
 .axis-label {
-  font-size: 12px;
+  font-size: 11px;
+  fill: #aaa;
+}
+
+.legend-label {
+  font-size: 11px;
+  fill: #555;
 }
 
 .dot {
   r: 2;
-  fill: rgb(31, 119, 180);
+  fill: #4a90d9;
   stroke: none;
-  opacity: 0.25;
+  opacity: 0.2;
+  transition: r 0.15s, opacity 0.15s;
 }
 
 .dot.highlighted {
   r: 3;
-  opacity: 1;
+  opacity: 0.7;
 }

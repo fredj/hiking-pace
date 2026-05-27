@@ -2,22 +2,19 @@
   "name": "hiking-pace",
   "version": "1.0.0",
   "scripts": {
-    "lint": "eslint src/",
-    "start": "parcel serve src/index.html",
-    "build": "parcel build src/index.html --public-url ./",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "gh-pages": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
-    "eslint": "^7.0.0",
-    "gh-pages": "^2.0.1",
-    "parcel-bundler": "^1.12.3"
+    "gh-pages": "^6.3.0",
+    "vite": "latest"
   },
   "dependencies": {
-    "@turf/distance": "^6.0.1",
-    "d3": "^5.9.7",
-    "lit-html": "^1.1.2",
-    "regression": "^2.0.1",
-    "save-svg-as-png": "^1.4.14",
-    "xml2js": "^0.4.19"
+    "@turf/distance": "^7.3.5",
+    "d3": "^7.9.0",
+    "lit-html": "^3.3.3",
+    "save-svg-as-png": "^1.4.17"
   }
 }

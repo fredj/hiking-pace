@@ -1,6 +1,6 @@
 /**
  * @param {number} length Length in meter.
- * @param {number} slope Slope in degrees.
+ * @param {number} slope Slope in percent.
  * @return walking time in minutes per kilometers.
  */
 export function hiking_time(length, slope) {
