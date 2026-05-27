@@ -15,7 +15,7 @@ Drop one or more `.gpx` files onto the chart. For each track the app:
 
 Useful for understanding your personal pace model or comparing multiple hikes.
 
-![hiking-pace screenshot](https://fredj.github.io/hiking-pace/screenshot.png)
+![hiking-pace screenshot](screenshot.png)
 
 ## Usage
 
