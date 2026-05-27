@@ -61,8 +61,11 @@ export function init(dest) {
 
 
 export function plot(g, entry) {
-  const reg = regression.polynomial(entry.points.map(point => [point.slope, point.pace]), {order: 8});
-  const data = generate(slope => reg.predict(slope)[1]);
+  const reg = regression.polynomial(entry.points.map(point => [point.slope, point.pace]), {order: 4});
+  const slopeMin = d3.min(entry.points, d => d.slope);
+  const slopeMax = d3.max(entry.points, d => d.slope);
+  const step = Math.max((slopeMax - slopeMin) / 40, 0.5);
+  const data = generate(slope => Math.max(0, reg.predict(slope)[1]), slopeMin, slopeMax, step);
 
   const line = d3.line()
     .x(d => x(d.slope))
