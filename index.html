@@ -1,1 +1,62 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="main.2f4ce521.css"><link rel="stylesheet" href="graph.e3adfc3e.css"></head><body> <svg id="graph" width="960" height="500"></svg> <div><button id="export" type="button">Save as png</button></div> <div id="files"></div> <script src="src.028ff4c6.js"></script> </body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Visualise your hiking pace vs slope from GPX tracks">
+    <title>hiking-pace</title>
+    <script type="module" crossorigin src="./assets/index-DqHlA3wr.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BisjKG3-.css">
+  </head>
+  <body>
+    <header>
+      <h1>hiking-pace</h1>
+      <p>Drop GPX files onto the chart to plot your pace vs slope</p>
+    </header>
+
+    <main>
+      <div id="chart-container">
+        <svg id="graph"></svg>
+        <div id="drop-hint">Drop .gpx files here</div>
+      </div>
+
+      <div id="controls">
+        <button id="export" type="button">Save as PNG</button>
+      </div>
+
+      <div id="files"></div>
+
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          hiking-pace visualises how your actual walking pace varies with terrain slope,
+          using GPS data from your hikes.
+        </p>
+
+        <h2>How to use</h2>
+        <ol>
+          <li>Export a hike as a <code>.gpx</code> file from your GPS device or app (Garmin, Strava, Komoot…)</li>
+          <li>Drop the file onto the chart — you can load multiple tracks at once</li>
+          <li>Hover a track name below the chart to highlight its data</li>
+          <li>Click <strong>Save as PNG</strong> to export the chart</li>
+        </ol>
+
+        <h2>Reading the chart</h2>
+        <dl>
+          <dt>Grey curve — Swiss hiking model</dt>
+          <dd>
+            The theoretical pace model used by <a href="https://www.schweizmobil.ch" target="_blank" rel="noopener">SwitzerlandMobility</a>,
+            empirically fitted to Swiss trail data. Pace is lowest around flat terrain and increases
+            steeply on both steep descents and climbs.
+          </dd>
+          <dt>Red curve — Your pace (regression)</dt>
+          <dd>
+            A degree-4 polynomial fitted to your measured segments. Shows your personal pace model
+            over the slope range actually covered in the track.
+          </dd>
+        </dl>
+      </section>
+    </main>
+
+  </body>
+</html>
